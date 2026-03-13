@@ -44,3 +44,18 @@ export const deleteProducts=(id)=> async(dispatch)=>{
     })
 
 }
+
+
+export const editProducts=(id)=> async(dispatch)=>{
+     await supabase
+    .from("mentorProduct")
+    .update().eq("id", id)
+    .select()
+
+
+    dispatch({
+        type: "EDIT_PRODUCTS",
+        payload: id
+    })
+
+}
